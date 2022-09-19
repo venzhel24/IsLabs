@@ -2,7 +2,7 @@ package ru.sfedu.islabs.lab2;
 
 import java.util.*;
 
-public class ex1_enhanced {
+public class Ex1_enhanced {
     public static String cypherText = "обнмчшйчшенчё мса амнбчцжц вмнбыуршчуа рнбцалчцжц\n" +
             "обцлурчущш у бньнчуа влбшлнжуенвщую, цонбшлурчц-влбшлнжуенвщую у\n" +
             "цонбшлурчёю йшмше чш щцчлучнчлшсхчёю, цщншчвщую (гцбвщую)\n" +
