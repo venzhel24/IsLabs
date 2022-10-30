@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5c04698-a4ae-4ca9-afb3-8ca8d8c2b8b6" name="Changes" comment="lab2 exercises 3, 4, 5 added">
+    <list default="true" id="a5c04698-a4ae-4ca9-afb3-8ca8d8c2b8b6" name="Changes" comment="lab3 added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sfedu/islabs/lab3/CryptoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sfedu/islabs/lab3/CryptoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663561304384</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="lab3 added">
+      <created>1667169628173</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667169628173</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,6 +200,7 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="lab2 first version" />
     <MESSAGE value="lab2 exercises 3, 4, 5 added" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab2 exercises 3, 4, 5 added" />
+    <MESSAGE value="lab3 added" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab3 added" />
   </component>
 </project>

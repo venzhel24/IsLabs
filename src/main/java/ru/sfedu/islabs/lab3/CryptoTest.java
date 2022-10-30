@@ -25,10 +25,7 @@ public class CryptoTest {
 
     public static void main(String[] args) {
         String msg = "Hello, world!";
-        String msg2 = "Hell0, world!";
         System.out.println(hashTest(msg));
-        System.out.println(hashTest(msg2));
-
     }
 
     public static String hashTest(String msg){
@@ -38,7 +35,7 @@ public class CryptoTest {
             arr_ints[i] = arr_bytes[i];
         }
 
-        System.out.println(Arrays.toString(arr_ints));
+        System.out.println("start array\n" + Arrays.toString(arr_ints));
 
         // Step 1
         int leng = 16 - arr_ints.length % 16;
@@ -47,31 +44,24 @@ public class CryptoTest {
         for(int i = 0; i < leng; i++){
             padded_array[arr_ints.length+i] = leng;
         }
-        //System.out.println(Arrays.toString(padded_array));
+        System.out.println("step 1 result\n"+Arrays.toString(padded_array));
 
         // Step 2
         int[] arr_C = new int[16];
         int l = 0;
         int c;
-        int tmp;
         for(int i = 0; i < padded_array.length/16; i++) {
             for(int j = 0; j < 16; j++){
                 c = padded_array[i*16+j];
-//                tmp = (c^l)+127;
-//                System.out.print("c xor l: " + tmp + "; C[J]: ");
-//                System.out.println((byte)(arr_C[j]^PI_SUBST[(c^l)+127]));
-                arr_C[j] = (byte) (arr_C[j]^PI_SUBST[(c^l)+127]);
+                arr_C[j] = (arr_C[j]^PI_SUBST[(c^l)]);
                 l = arr_C[j];
             }
         }
         //System.out.println(Arrays.toString(arr_C));
         int[] new_padded_array= new int[padded_array.length+arr_C.length];
         System.arraycopy(padded_array, 0, new_padded_array, 0, padded_array.length);
-        for(int i = 0; i < arr_C.length; i++) {
-            arr_C[i]+=127;
-        }
         System.arraycopy(arr_C, 0, new_padded_array, padded_array.length, arr_C.length);
-        System.out.println(Arrays.toString(new_padded_array));
+        System.out.println("step 2 result\n" + Arrays.toString(new_padded_array));
 
         // Step 3
         int[] arr_X = new int[48];
@@ -94,7 +84,7 @@ public class CryptoTest {
                 //System.out.println(Arrays.toString(arr_X));
             }
         }
-        System.out.println(Arrays.toString(arr_X));
+        System.out.println("step 3 result\n" + Arrays.toString(arr_X));
 
         // step 4
         byte[] result_arr = new byte[16];
@@ -105,16 +95,10 @@ public class CryptoTest {
             }
             result_arr[i] = (byte)(arr_X[i]);
         }
-        System.out.println(Arrays.toString(result_arr));
+
+        System.out.println("step 4 result\n" + Arrays.toString(result_arr));
         StringBuilder sb = new StringBuilder(result_arr.length * 2);
         for(byte b: result_arr)
-            sb.append(String.format("%02x", b));
-        return sb.toString();
-    }
-
-    public static String byteArrayToHex(byte[] a) {
-        StringBuilder sb = new StringBuilder(a.length * 2);
-        for(byte b: a)
             sb.append(String.format("%02x", b));
         return sb.toString();
     }
