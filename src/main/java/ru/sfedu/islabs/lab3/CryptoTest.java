@@ -24,12 +24,13 @@ public class CryptoTest {
             31, 26, 219, 153, 141, 51, 159, 17, 131, 20};
 
     public static void main(String[] args) {
-        String msg = "Hello, world!";
-        System.out.println(hashTest(msg));
+        String msg = "hello, world!";
+        //System.out.println(hashTest(args[0].toCharArray()));
+        System.out.println(hashTest(msg.toCharArray()));
     }
 
-    public static String hashTest(String msg){
-        byte[] arr_bytes = msg.getBytes(StandardCharsets.UTF_8);
+    public static String hashTest(char[] msg){
+        byte[] arr_bytes = new String(msg).getBytes(StandardCharsets.UTF_8);
         int[] arr_ints = new int[arr_bytes.length];
         for(int i = 0; i < arr_ints.length; i++){
             arr_ints[i] = arr_bytes[i];
@@ -47,20 +48,20 @@ public class CryptoTest {
         System.out.println("step 1 result\n"+Arrays.toString(padded_array));
 
         // Step 2
-        int[] arr_C = new int[16];
+        int[] check_sum = new int[16];
         int l = 0;
         int c;
         for(int i = 0; i < padded_array.length/16; i++) {
             for(int j = 0; j < 16; j++){
                 c = padded_array[i*16+j];
-                arr_C[j] = (arr_C[j]^PI_SUBST[(c^l)]);
-                l = arr_C[j];
+                check_sum[j] = (check_sum[j]^PI_SUBST[(c^l)]);
+                l = check_sum[j];
             }
         }
         //System.out.println(Arrays.toString(arr_C));
-        int[] new_padded_array= new int[padded_array.length+arr_C.length];
+        int[] new_padded_array= new int[padded_array.length+check_sum.length];
         System.arraycopy(padded_array, 0, new_padded_array, 0, padded_array.length);
-        System.arraycopy(arr_C, 0, new_padded_array, padded_array.length, arr_C.length);
+        System.arraycopy(check_sum, 0, new_padded_array, padded_array.length, check_sum.length);
         System.out.println("step 2 result\n" + Arrays.toString(new_padded_array));
 
         // Step 3
